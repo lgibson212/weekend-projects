@@ -6,6 +6,9 @@ class Player:
 		self.wins = wins
 		self.choice = None
 
+
+
+
 	def make_choice(self):
 		player_choice = input("{}, choose [1] rock, [2] paper or [3] scissors: ".format(self.name))
 		if player_choice not in ['1', '2', '3']:
@@ -13,6 +16,7 @@ class Player:
 			self.make_choice()
 		else:
 			self.choice = player_choice
+
 
 
 class Game:
@@ -68,7 +72,7 @@ class Game:
 		print ('{} Wins!!'.format(player.name))
 
 
-
+#
 g = Game()
 #print (g.rand_comp_choice())
 #guess = Guess()
