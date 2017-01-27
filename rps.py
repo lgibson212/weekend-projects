@@ -2,6 +2,7 @@ class Player:
 	def __init__(self, name, wins=0):
 		self.name = name
 		self.wins = wins
+		#changes
 
 
 class Guess:
