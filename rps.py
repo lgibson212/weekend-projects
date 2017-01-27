@@ -5,7 +5,7 @@ class Player:
 
 
 class Guess:
-	def __init__(self, choice):
+	def __init__(self, choice): #
 		self.choice = choice
 
 	def player_choice(self):
