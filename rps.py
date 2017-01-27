@@ -72,7 +72,7 @@ class Game:
 		print ('{} Wins!!'.format(player.name))
 
 
-
+#
 g = Game()
 #print (g.rand_comp_choice())
 #guess = Guess()
