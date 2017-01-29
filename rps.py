@@ -11,16 +11,9 @@ class Player:
 	def __init__(self, wins=0):
 		self.name = input("Enter your name: ")
 		self.wins = wins
-		self.round_count = 0
 		self.choice = None
 
 	def make_choice(self):
-		self.round_count += 1
-		os.system('clear')
-		print("\n***********************************************")
-		print("*******************  Round #{} *****************".format(self.round_count))
-		print("***********************************************\n")
-
 		player_choice = input("{}, choose [1] rock, [2] paper or [3] scissors: ".format(self.name))
 		if player_choice not in ['1', '2', '3']:
 			print ('Invalid choice - please choose again')
@@ -34,18 +27,26 @@ class Game:
 		self.players = []
 		self.target_score = target_score
 		self.winner = None
+		self.round_count = 0
 		self.add_player()
 		self.round()
 
 	def add_player(self):
 		self.players.append(Player())
 		more_players = input("Will there be more players? [y or n] ")
+		print ("\n")
 		#need to validate yes or no
 		if more_players == "y":
 			self.add_player()
 		return self.players
 
 	def round(self):
+		self.round_count += 1
+		os.system('clear')
+		print("\n***********************************************")
+		print("*******************  Round #{} *****************".format(self.round_count))
+		print("***********************************************\n")
+
 		for player in self.players:
 			player.make_choice()
 		self.compare()
