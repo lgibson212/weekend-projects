@@ -54,9 +54,6 @@ class Game:
 
 		return self.players
 
-
-
-
 	def round(self):
 		self.round_count += 1
 		os.system('clear')
@@ -87,13 +84,13 @@ class Game:
 				player.wins += 1
 			elif computer_choice == '3' and player.choice == '1':
 				player.wins += 1
-	
-	def score_board(self):	
+
+	def score_board(self):
+		print ("\n")
 		for player in self.players:
 			print("{} has {} wins".format(player.name, player.wins))
 		time.sleep(3)
 
-	
 	def check_wins(self):
 		for player in self.players:
 			#How to deal with multiple players scoring 5
