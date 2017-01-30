@@ -17,14 +17,14 @@ class Player:
 		player_choice = input("{}, choose [1] rock, [2] paper or [3] scissors: ".format(self.name))
 		if player_choice not in ['1', '2', '3']:
 			print ('Invalid choice - please choose [1], [2], or [3]')
-			time.sleep(2)
+			time.sleep(1)
 			self.make_choice()
 		else:
 			self.choice = player_choice
 
 
 class Game:
-	def __init__(self, target_score=3):
+	def __init__(self, target_score=2):
 		self.players = []
 		self.target_score = target_score
 		self.winner = None
@@ -49,7 +49,7 @@ class Game:
 			pass
 		else:
 			print('Not a valid input. Please type "y" or "n" on next try.')
-			time.sleep(3)
+			time.sleep(1)
 			self.add_more_players()
 
 		return self.players
@@ -97,8 +97,8 @@ class Game:
 			if player.wins == self.target_score:
 				self.winner = player.name
 				return self.winner
-			else:
-				return False
+		else:
+			return False
 
 	def results(self):
 		print ('{} Wins!!'.format(self.winner)) 
