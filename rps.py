@@ -30,6 +30,7 @@ class Game:
 		self.players = []
 		self.target_score = target_score
 		self.winner = None
+		self.winners = [] #list to store multiple winners, if more than one user hits the target_score
 		self.round_count = 0
 		self.add_player()
 		self.round()
@@ -37,23 +38,19 @@ class Game:
 	def add_player(self):
 		self.players.append(Player())
 		self.add_more_players()
-		#need to validate yes or no
-
 		return self.players
 
 	def add_more_players(self):
 		more_players = input("Will there be more players? [y or n] ")
 		print ("\n")
-		#need to validate yes or no
 		if more_players == "y":
 			self.add_player()
 		elif more_players == 'n':
 			pass
 		else:
 			print('Not a valid input. Please type "y" or "n" on next try.')
-			time.sleep(1)
+			time.sleep(2)
 			self.add_more_players()
-
 		return self.players
 
 	def round(self):
@@ -91,19 +88,17 @@ class Game:
 		print ("\n")
 		for player in self.players:
 			print("{} has {} wins".format(player.name, player.wins))
-		time.sleep(3)
+		time.sleep(1)
 
 	def check_wins(self):
 		for player in self.players:
-			#How to deal with multiple players scoring 5
 			if player.wins == self.target_score:
-				self.winner = player.name
-				return self.winner
-		else:
-			return False
+				self.winners.append(player.name)
+		return self.winners
 
 	def results(self):
-		print ('\n{} Wins!!\n'.format(self.winner)) 
+		for winner in self.winners:
+			print ('\n{} Wins!!'.format(winner))
 
 
 g = Game()
@@ -112,6 +107,3 @@ g = Game()
 #print (guess.player_choice())
 # p = Player(self)
 # p.name
-
-
-
