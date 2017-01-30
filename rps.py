@@ -24,7 +24,7 @@ class Player:
 
 
 class Game:
-	def __init__(self, target_score=2):
+	def __init__(self, target_score=3):
 		self.players = []
 		self.target_score = target_score
 		self.winner = None
@@ -101,7 +101,7 @@ class Game:
 			return False
 
 	def results(self):
-		print ('{} Wins!!'.format(self.winner)) 
+		print ('\n{} Wins!!\n'.format(self.winner)) 
 
 
 g = Game()
