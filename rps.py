@@ -95,14 +95,13 @@ class Game:
 		for player in self.players:
 			#How to deal with multiple players scoring 5
 			if player.wins == self.target_score:
-				self.winner = player
-				return True
+				self.winner = player.name
+				return self.winner
 			else:
 				return False
 
 	def results(self):
-		print ('{} Wins!!'.format(self.winner)) #This should move elsewhere because it doesn't work in round method
-		#create wins display (overall score) after each round , does it go here?
+		print ('{} Wins!!'.format(self.winner)) 
 
 
 g = Game()
